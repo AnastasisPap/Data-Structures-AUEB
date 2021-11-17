@@ -1,0 +1,6 @@
+buy 43 price 25
+buy 10 price 21
+buy 46 price 27
+sell 32 price 36
+sell 27 price 11
+sell 16 price 11
