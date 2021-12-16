@@ -1,4 +1,5 @@
 public class Sort {
+    // Quicksort in decreasing order, based on the total time of each task
     private static void swap(Task[] arr, int i, int j) {
         Task temp = arr[i];
         arr[i] = arr[j];
@@ -29,10 +30,4 @@ public class Sort {
             quickSort(arr, part+1, high);
         }
     }
-
-    // public static void printArray(Task[] arr, int size) {
-    //     for (int i = 0; i < size; i++)
-    //         System.out.println("ID: " + arr[i].getId() + " = " + arr[i].getTime());
-    //     System.out.println();
-    // }
 }

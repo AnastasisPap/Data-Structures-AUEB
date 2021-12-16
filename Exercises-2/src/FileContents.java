@@ -1,11 +1,17 @@
 import java.io.File;
 
 public class FileContents {
+    // Stores ids of the tasks
     private int[] ids;
+    // Stores the times of the tasks
     private int[] tasks;
+    // Number of total tasks
     private int totalTasks;
+    // Number of total processors
     private int totalProcessors;
+    // False if there are errors with the file (wrong path, or more/less tasks than should be)
     private boolean correctFormat;
+    // stores the error message
     private String errorMessage;
 
     public FileContents(int totalTasks, int totalProcessors) {
@@ -20,6 +26,7 @@ public class FileContents {
         this.correctFormat = format;
     }
 
+    // Getters and setters
     public void setErrorMessage(String errorMessage) {
         this.errorMessage = errorMessage;
     }

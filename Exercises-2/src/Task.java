@@ -18,4 +18,8 @@ public class Task {
     public void setTime(int time) {
         this.time = time;
     }
+
+    public boolean isEqual(Task B) {
+        return (this.getId() == B.getId() && this.getTime() == B.getTime());
+    }
 }
