@@ -12,6 +12,6 @@ public interface WordCounter {
     double getMeanFrequency();
     void addStopWord(String word);
     void removeStopWord(String word);
-    void printTreeAlphabetically();
-    void printTreeByFrequency();
+    void printTreeAlphabetically(PrintStream printStream);
+    void printTreeByFrequency(PrintStream printStream);
 }

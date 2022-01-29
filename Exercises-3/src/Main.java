@@ -75,11 +75,11 @@ public class Main {
                         break;
                     case 12:
                         System.out.println();
-                        bst.printTreeAlphabetically();
+                        bst.printTreeAlphabetically(System.out);
                         break;
                     case 13:
                         System.out.println();
-                        bst.printTreeByFrequency();
+                        bst.printTreeByFrequency(System.out);
                         break;
                     default:
                         break;

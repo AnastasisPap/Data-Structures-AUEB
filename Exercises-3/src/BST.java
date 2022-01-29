@@ -306,6 +306,10 @@ public class BST implements WordCounter {
                         if (!isLetter(char_code)) {
                             if (i - 1 >= 0 && i + 1 < word.length() && (int)word.charAt(i) == 39 && isLetter(word.charAt(i-1)) && isLetter(word.charAt(i+1)))
                                 result.append(word.charAt(i));
+                            else if (!(i == word.length() - 1 || i == 0)) {
+                                result = null;
+                                break;
+                            }
                         }
                         // if it's a letter add it to the string builder
                         else {
@@ -313,7 +317,7 @@ public class BST implements WordCounter {
                         }
                     }
                     // if it's not a stop word or an empty string insert it to the BST
-                    if (!stopWords.hasItem(result.toString().toLowerCase()) && result.length() > 0)
+                    if (result != null && !stopWords.hasItem(result.toString().toLowerCase()) && result.length() > 0)
                         this.insert(result.toString().toLowerCase());
                 }
             }
@@ -409,20 +413,20 @@ public class BST implements WordCounter {
     // this is because left < root < right in a BST
     // runs in O(N)
     @Override
-    public void printTreeAlphabetically() {
-        printTreeAlphabeticallyHelper(head);
+    public void printTreeAlphabetically(PrintStream printStream) {
+        printTreeAlphabeticallyHelper(head, printStream);
         System.out.println("NULL");
     }
 
     // helper function to make recursive calls
     // makes an inOrder traverse which prints them in the correct order
     // Runs in O(N)
-    public void printTreeAlphabeticallyHelper(TreeNode node) {
+    public void printTreeAlphabeticallyHelper(TreeNode node, PrintStream printStream) {
         if (node == null) return;
 
-        printTreeAlphabeticallyHelper(node.left());
+        printTreeAlphabeticallyHelper(node.left(), printStream);
         System.out.print(node.getData().key() + ": " + node.getData().getOccurrences() + " -> ");
-        printTreeAlphabeticallyHelper(node.right());
+        printTreeAlphabeticallyHelper(node.right(), printStream);
     }
 
     // Does an inorder traverse and adds the items in the items array
@@ -436,7 +440,7 @@ public class BST implements WordCounter {
     // prints the tree based on frequency of the word
     // Runs in O(N)
     @Override
-    public void printTreeByFrequency() {
+    public void printTreeByFrequency(PrintStream printStream) {
         if (head == null) {
             System.out.println("NULL");
             return;
@@ -450,9 +454,5 @@ public class BST implements WordCounter {
         System.out.println("NULL");
         // resets the index
         index = 0;
-    }
-
-    public void printStopwords() {
-        stopWords.printLinkedList();
     }
 }

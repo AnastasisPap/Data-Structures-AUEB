@@ -240,7 +240,7 @@ public class BSTTest {
         bst.insert("f");
         bst.insert("a");
 
-        bst.printTreeAlphabetically();
+        bst.printTreeAlphabetically(System.out);
         Assert.assertEquals("a: 3 -> c: 1 -> d: 1 -> f: 2 -> g: 1 -> z: 1 -> NULL", output.toString().trim());
     }
 
@@ -259,7 +259,7 @@ public class BSTTest {
         bst.insert("f");
         bst.insert("a");
 
-        bst.printTreeByFrequency();
+        bst.printTreeByFrequency(System.out);
         Assert.assertEquals("z: 1 -> g: 1 -> c: 1 -> d: 1 -> f: 2 -> a: 3 -> NULL", output.toString().trim());
     }
 
